@@ -65,11 +65,13 @@ def main(silent=False, verbose=True):
     # data.set_index(['Date'],inplace=True)
 
     plt.scatter(dates[high_el], avg_pf[high_el], edgecolor='none',
-                facecolor='red', alpha=0.5)
+                facecolor='red', alpha=0.5, label='Mt Hopkins (8500 ft)')
     plt.scatter(dates[tucson], avg_pf[tucson], edgecolor='none',
-                facecolor='blue', alpha=0.5)
+                facecolor='blue', alpha=0.5, label='Tucson (2500 ft)')
     #data['Date'], data['PF #1'])
     #data.plot('Date', 'PF #1') #, xlim=[2016,2019])
+
+    plt.legend(loc='lower right', fontsize=10)
     
     if silent == False: log.info('### End main : '+systime())
 #enddef
