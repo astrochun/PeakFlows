@@ -70,18 +70,20 @@ def main(silent=False, verbose=True):
     # data.Date = to_datetime(data['Date'], format='%Y-%m-%d %H:%M:%S.%f')
     # data.set_index(['Date'],inplace=True)
 
-    plt.scatter(dates[high_el], avg_pf[high_el], edgecolor='none',
+    fig, ax = plt.subplots(nrows=2)
+
+    ax[0].scatter(dates[high_el], avg_pf[high_el], edgecolor='none',
                 facecolor='red', alpha=0.5, label='Mt Hopkins (8500 ft)')
-    plt.scatter(dates[tucson], avg_pf[tucson], edgecolor='none',
+    ax[0].scatter(dates[tucson], avg_pf[tucson], edgecolor='none',
                 facecolor='blue', alpha=0.5, label='Tucson (2500 ft)')
-    plt.scatter(dates[travel], avg_pf[travel], edgecolor='none',
+    ax[0].scatter(dates[travel], avg_pf[travel], edgecolor='none',
                 facecolor='green', alpha=0.5, label='Travel')
-    plt.scatter(dates[sick], avg_pf[sick], 30, marker='x', color='red',
+    ax[0].scatter(dates[sick], avg_pf[sick], 30, marker='x', color='red',
                 label='Sick')
     #data['Date'], data['PF #1'])
     #data.plot('Date', 'PF #1') #, xlim=[2016,2019])
 
-    plt.legend(loc='lower right', fontsize=10)
+    ax[0].legend(loc='lower right', fontsize=10)
     
     if silent == False: log.info('### End main : '+systime())
 #enddef
