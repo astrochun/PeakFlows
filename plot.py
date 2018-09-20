@@ -48,6 +48,7 @@ def main(silent=False, verbose=True):
     data = read_excel(main_file)
 
     dates = data['Date'].values
+    time  = data['Time'].values
     comm0 = data['Notes'].values
     v1    = data['PF #1'].values
     v2    = data['PF #2'].values
@@ -84,6 +85,8 @@ def main(silent=False, verbose=True):
     #data.plot('Date', 'PF #1') #, xlim=[2016,2019])
 
     ax[0].legend(loc='lower right', fontsize=10)
+
+    ax[1].scatter(time, avg_pf)
     
     if silent == False: log.info('### End main : '+systime())
 #enddef
