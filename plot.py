@@ -61,6 +61,9 @@ def main(silent=False, verbose=True):
     tucson  = np.array([xx for xx in range(len(data)) if
                         'Tucson' in str(comm0[xx])])
 
+    travel  = np.array([xx for xx in range(len(data)) if
+                        'Travel' in str(comm0[xx])])
+
     sick  = np.array([xx for xx in range(len(data)) if
                       'sick' in str(comm0[xx]) or 'Sick' in str(comm0[xx])])
 
@@ -71,6 +74,8 @@ def main(silent=False, verbose=True):
                 facecolor='red', alpha=0.5, label='Mt Hopkins (8500 ft)')
     plt.scatter(dates[tucson], avg_pf[tucson], edgecolor='none',
                 facecolor='blue', alpha=0.5, label='Tucson (2500 ft)')
+    plt.scatter(dates[travel], avg_pf[travel], edgecolor='none',
+                facecolor='green', alpha=0.5, label='Travel')
     plt.scatter(dates[sick], avg_pf[sick], 30, marker='x', color='red',
                 label='Sick')
     #data['Date'], data['PF #1'])
